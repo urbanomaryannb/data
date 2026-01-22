@@ -27,68 +27,100 @@
       <ul>
         <li>
           <span>Highfield International Award Level 3 in Food Safety for Catering (RQF)</span>
-          <button class="view-btn" onclick="openCert('cert1.png')">View Certificate</button>
+          <div class="btn-group">
+            <button class="view-btn" onclick="openCert('cert1.png')">View Certificate</button>
+            <a href="cert1.png" download class="download-btn">Download</a>
+          </div>
         </li>
 
         <li>
           <span>Highfield International Award Level 3 in Emergency First Aid at Work</span>
-          <button class="view-btn" onclick="openCert('cert2.png')">View Certificate</button>
+          <div class="btn-group">
+            <button class="view-btn" onclick="openCert('cert2.png')">View Certificate</button>
+            <a href="cert2.png" download class="download-btn">Download</a>
+          </div>
         </li>
 
         <li>
           <span>HACCP (Hazard Analysis and Critical Control Point)</span>
-          <button class="view-btn" onclick="openCert('cert3.png')">View Certificate</button>
+          <div class="btn-group">
+            <button class="view-btn" onclick="openCert('cert3.png')">View Certificate</button>
+            <a href="cert3.png" download class="download-btn">Download</a>
+          </div>
         </li>
 
         <li>
           <span>COSHH (Control of Substances Hazardous to Health)</span>
-          <button class="view-btn" onclick="openCert('cert4.png')">View Certificate</button>
+          <div class="btn-group">
+            <button class="view-btn" onclick="openCert('cert4.png')">View Certificate</button>
+            <a href="cert4.png" download class="download-btn">Download</a>
+          </div>
         </li>
 
         <li>
           <span>Health and Safety at Work</span>
-          <button class="view-btn" onclick="openCert('cert5.png')">View Certificate</button>
+          <div class="btn-group">
+            <button class="view-btn" onclick="openCert('cert5.png')">View Certificate</button>
+            <a href="cert5.png" download class="download-btn">Download</a>
+          </div>
         </li>
 
         <li>
           <span>Highfield International Award Level 1 in Food Safety</span>
-          <button class="view-btn" onclick="openCert('cert6.png')">View Certificate</button>
+          <div class="btn-group">
+            <button class="view-btn" onclick="openCert('cert6.png')">View Certificate</button>
+            <a href="cert6.png" download class="download-btn">Download</a>
+          </div>
         </li>
 
         <li>
           <span>Highfield International Award Level 2 in Food Safety</span>
-          <button class="view-btn" onclick="openCert('cert7.png')">View Certificate</button>
+          <div class="btn-group">
+            <button class="view-btn" onclick="openCert('cert7.png')">View Certificate</button>
+            <a href="cert7.png" download class="download-btn">Download</a>
+          </div>
         </li>
 
         <li>
           <span>Waste Management System</span>
-          <button class="view-btn" onclick="openCert('cert8.png')">View Certificate</button>
+          <div class="btn-group">
+            <button class="view-btn" onclick="openCert('cert8.png')">View Certificate</button>
+            <a href="cert8.png" download class="download-btn">Download</a>
+          </div>
         </li>
 
         <li>
           <span>Customer Service</span>
-          <button class="view-btn" onclick="openCert('cert9.png')">View Certificate</button>
+          <div class="btn-group">
+            <button class="view-btn" onclick="openCert('cert9.png')">View Certificate</button>
+            <a href="cert9.png" download class="download-btn">Download</a>
+          </div>
         </li>
 
         <li>
           <span>Fire and Safety Prevention Program</span>
-          <button class="view-btn" onclick="openCert('cert10.png')">View Certificate</button>
+          <div class="btn-group">
+            <button class="view-btn" onclick="openCert('cert10.png')">View Certificate</button>
+            <a href="cert10.png" download class="download-btn">Download</a>
+          </div>
         </li>
       </ul>
     </div>
+
+    <!-- RESUME DOWNLOAD -->
+    <a href="resume.pdf" download class="resume-btn">Download Resume (PDF)</a>
   </div>
 
-  <!-- POPUP MODAL -->
+  <!-- CERTIFICATE POPUP -->
   <div id="certModal" class="modal">
     <span class="close" onclick="closeCert()">&times;</span>
-    <img class="modal-content" id="certImage">
+    <img id="certImage" class="modal-content">
   </div>
 
-  <!-- JAVASCRIPT -->
   <script>
-    function openCert(imageSrc) {
+    function openCert(src) {
       document.getElementById("certModal").style.display = "flex";
-      document.getElementById("certImage").src = imageSrc;
+      document.getElementById("certImage").src = src;
     }
 
     function closeCert() {
