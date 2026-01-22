@@ -8,9 +8,11 @@
 <body>
 
   <div class="card">
+    <!-- PROFILE IMAGE -->
     <img src="profile.png" alt="Profile Photo">
 
-    <h1>Mary Ann B. Urbano</h1>
+    <!-- BASIC INFO -->
+    <h1>MARY ANN BALOLONG URBANO</h1>
     <h3>Profession / Role</h3>
 
     <p>
@@ -18,7 +20,81 @@
       background, or purpose of this person or business.
     </p>
 
-      </div>
+    <!-- CERTIFICATES SECTION -->
+    <div class="certificates">
+      <h2>Certificates & Trainings</h2>
+
+      <ul>
+        <li>
+          <span>Highfield International Award Level 3 in Food Safety for Catering (RQF)</span>
+          <button class="view-btn" onclick="openCert('cert1.png')">View Certificate</button>
+        </li>
+
+        <li>
+          <span>Highfield International Award Level 3 in Emergency First Aid at Work</span>
+          <button class="view-btn" onclick="openCert('cert2.png')">View Certificate</button>
+        </li>
+
+        <li>
+          <span>HACCP (Hazard Analysis and Critical Control Point)</span>
+          <button class="view-btn" onclick="openCert('cert3.png')">View Certificate</button>
+        </li>
+
+        <li>
+          <span>COSHH (Control of Substances Hazardous to Health)</span>
+          <button class="view-btn" onclick="openCert('cert4.png')">View Certificate</button>
+        </li>
+
+        <li>
+          <span>Health and Safety at Work</span>
+          <button class="view-btn" onclick="openCert('cert5.png')">View Certificate</button>
+        </li>
+
+        <li>
+          <span>Highfield International Award Level 1 in Food Safety</span>
+          <button class="view-btn" onclick="openCert('cert6.png')">View Certificate</button>
+        </li>
+
+        <li>
+          <span>Highfield International Award Level 2 in Food Safety</span>
+          <button class="view-btn" onclick="openCert('cert7.png')">View Certificate</button>
+        </li>
+
+        <li>
+          <span>Waste Management System</span>
+          <button class="view-btn" onclick="openCert('cert8.png')">View Certificate</button>
+        </li>
+
+        <li>
+          <span>Customer Service</span>
+          <button class="view-btn" onclick="openCert('cert9.png')">View Certificate</button>
+        </li>
+
+        <li>
+          <span>Fire and Safety Prevention Program</span>
+          <button class="view-btn" onclick="openCert('cert10.png')">View Certificate</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- POPUP MODAL -->
+  <div id="certModal" class="modal">
+    <span class="close" onclick="closeCert()">&times;</span>
+    <img class="modal-content" id="certImage">
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    function openCert(imageSrc) {
+      document.getElementById("certModal").style.display = "flex";
+      document.getElementById("certImage").src = imageSrc;
+    }
+
+    function closeCert() {
+      document.getElementById("certModal").style.display = "none";
+    }
+  </script>
 
 </body>
 </html>
