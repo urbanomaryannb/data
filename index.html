@@ -3,7 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>Profile Website</title>
+
+  <!-- MOBILE RESPONSIVENESS -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
   <meta name="description" content="Executive / Head Waitress with experience in food and beverage service, event management, and food safety certifications.">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,7 +20,7 @@
 
     <!-- BASIC INFO -->
     <h1>MARY ANN BALOLONG URBANO</h1>
-    <h3>Executive / Head Waitress</h3>
+    
 
     <!-- CONTACT INFO -->
     <div class="contact">
@@ -23,19 +29,22 @@
       <p>📍 Thuwal, Jeddah, Saudi Arabia</p>
     </div>
 
-    <p class="summary">
-      Highly motivated and detail-oriented professional with solid experience in Food and Beverage Services and Event Management.
-      Certified in Food and Beverage Services NC II, with strong expertise in banquet service, event coordination, and high-volume
-      food operations. Skilled in supervising service staff, coordinating with kitchen and event teams, and ensuring smooth
-      execution of events from set-up to service completion. Committed to delivering excellent guest experiences and maintaining
-      food safety standards in fast-paced environments.
-    </p>
+    <!-- SUMMARY -->
+    
 
-    <!-- CERTIFICATES SECTION -->
+    <!-- CERTIFICATES -->
     <div class="certificates">
       <h2>Certificates & Trainings</h2>
 
       <ul>
+	   <li>
+          <span>Event Management Services NC III (TESDA)</span>
+          <div class="btn-group">
+            <button class="view-btn" onclick="openCert('tesda2.png')">View</button>
+            <a href="tesda2.png" download class="download-btn">Download</a>
+          </div>
+        </li>
+		
         <li>
           <span>Food and Beverage Services NC II (TESDA)</span>
           <div class="btn-group">
@@ -44,13 +53,7 @@
           </div>
         </li>
 
-        <li>
-          <span>Event Management Services (TESDA)</span>
-          <div class="btn-group">
-            <button class="view-btn" onclick="openCert('tesda2.png')">View</button>
-            <a href="tesda2.png" download class="download-btn">Download</a>
-          </div>
-        </li>
+       
 
         <li>
           <span>Highfield International Award Level 3 in Food Safety for Catering (RQF)</span>
@@ -134,8 +137,9 @@
       </ul>
     </div>
 
-    <!-- RESUME -->
+    <!-- DOWNLOAD BUTTONS -->
     <a href="resume.pdf" download class="resume-btn">Download Resume (PDF)</a>
+    <a href="certificates.zip" download class="zip-btn">Download All Certificates (ZIP)</a>
   </div>
 
   <!-- MODAL -->
@@ -155,7 +159,7 @@
       document.getElementById("certModal").style.display = "none";
     }
 
-    document.getElementById("certModal").addEventListener("click", function (e) {
+    document.getElementById("certModal").addEventListener("click", function(e) {
       if (e.target === this) closeCert();
     });
   </script>
