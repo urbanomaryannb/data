@@ -8,7 +8,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO -->
-  <meta name="description" content="Executive / Head Waitress with experience in food and beverage service, event management, and food safety certifications.">
+  <meta name="description" content="Hospitality professional with certifications in food safety, event management, and customer service.">
+
+  <!-- FAVICON (optional) -->
+  <link rel="icon" href="favicon.png">
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -16,35 +19,41 @@
 
   <div class="card">
     <!-- PROFILE IMAGE -->
-    <img src="profile.png" alt="Profile Photo">
+    <img src="profile.png" alt="Profile photo of Mary Ann Balolong Urbano">
 
     <!-- BASIC INFO -->
     <h1>MARY ANN BALOLONG URBANO</h1>
-    
 
-    <!-- CONTACT INFO -->
+    <!-- ROLE / TITLE (ADDED) -->
+    <h3 class="role">Executive / Head Waitress</h3>
+
+    <!-- CONTACT INFO (CLICKABLE) -->
     <div class="contact">
-      <p>📧 urbanomaryann1990@gmail.com</p>
-      <p>📱 +966 54-634-7596</p>
+      <p>📧 <a href="mailto:urbanomaryann1990@gmail.com">urbanomaryann1990@gmail.com</a></p>
+      <p>📱 <a href="tel:+966546347596">+966 54-634-7596</a></p>
       <p>📍 Thuwal, Jeddah, Saudi Arabia</p>
     </div>
 
-    <!-- SUMMARY -->
-    
+    <!-- SUMMARY (ADDED – SHORT) -->
+    <p class="summary">
+      Hospitality professional with experience in food and beverage service, event management,
+      and food safety compliance. Certified under TESDA and international food safety programs,
+      with strong customer service and safety awareness.
+    </p>
 
     <!-- CERTIFICATES -->
     <div class="certificates">
       <h2>Certificates & Trainings</h2>
 
       <ul>
-	   <li>
+        <li>
           <span>Event Management Services NC III (TESDA)</span>
           <div class="btn-group">
             <button class="view-btn" onclick="openCert('tesda2.jpg')">View</button>
             <a href="tesda2.jpg" download class="download-btn">Download</a>
           </div>
         </li>
-		
+
         <li>
           <span>Food and Beverage Services NC II (TESDA)</span>
           <div class="btn-group">
@@ -52,8 +61,6 @@
             <a href="tesda1.jpg" download class="download-btn">Download</a>
           </div>
         </li>
-
-       
 
         <li>
           <span>Highfield International Award Level 3 in Food Safety for Catering (RQF)</span>
@@ -139,13 +146,13 @@
 
     <!-- DOWNLOAD BUTTONS -->
     <a href="resume.pdf" download class="resume-btn">Download Resume (PDF)</a>
-    <a href="certificates.zip" download class="zip-btn">Download All Certificates (ZIP)</a>
+    <a href="certificates.zip" download class="zip-btn">Download Certificates (ZIP)</a>
   </div>
 
   <!-- MODAL -->
   <div id="certModal" class="modal">
     <span class="close" onclick="closeCert()">&times;</span>
-    <img id="certImage" class="modal-content">
+    <img id="certImage" class="modal-content" loading="lazy" alt="Certificate preview">
   </div>
 
   <script>
@@ -159,6 +166,10 @@
       document.getElementById("certModal").style.display = "none";
     }
 
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") closeCert();
+    });
+
     document.getElementById("certModal").addEventListener("click", function(e) {
       if (e.target === this) closeCert();
     });
@@ -166,8 +177,3 @@
 
 </body>
 </html>
-
-
-
-
-
