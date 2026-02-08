@@ -87,4 +87,12 @@ document.getElementById("certModal").addEventListener("click", function(e) {
   if (e.target === this) closeCert();
 });
 
+function openSettings() {
+  document.getElementById("settingsPanel").style.display = "flex";
+}
+
+function closeSettings() {
+  document.getElementById("settingsPanel").style.display = "none";
+}
+
 </script>
