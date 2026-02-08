@@ -273,4 +273,31 @@ body {
   font-size: 13px;
   margin-top: 8px;
 }
+.pin-wrapper {
+  position: relative;
+}
+
+#togglePin {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.loader {
+  display: none;
+  margin: 10px auto;
+  width: 28px;
+  height: 28px;
+  border: 3px solid #ddd;
+  border-top: 3px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
 
