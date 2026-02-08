@@ -1,179 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Profile Website</title>
+<meta charset="UTF-8">
+<title>Profile Website</title>
 
-  <!-- MOBILE RESPONSIVENESS -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hospitality professional with certifications in food safety, event management, and customer service.">
 
-  <!-- SEO -->
-  <meta name="description" content="Hospitality professional with certifications in food safety, event management, and customer service.">
-
-  <!-- FAVICON (optional) -->
-  <link rel="icon" href="favicon.png">
-
-  <link rel="stylesheet" href="style.css">
+<link rel="icon" href="favicon.png">
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <div class="card">
-    <!-- PROFILE IMAGE -->
-    <img src="profile.png" alt="Profile photo of Mary Ann Balolong Urbano">
+<!-- LOCK SCREEN -->
+<div id="lockScreen">
+  <div class="lock-box">
+    <h2>Enter PIN</h2>
 
-    <!-- BASIC INFO -->
-    <h1>MARY ANN BALOLONG URBANO</h1>
-
-    <!-- ROLE / TITLE (ADDED) -->
-    <h3 class="role">Executive / Head Waitress</h3>
-
-    <!-- CONTACT INFO (CLICKABLE) -->
-    <div class="contact">
-      <p>📧 <a href="mailto:urbanomaryann1990@gmail.com">urbanomaryann1990@gmail.com</a></p>
-      <p>📱 <a href="tel:+966546347596">+966 54-634-7596</a></p>
-      <p>📍 Thuwal, Jeddah, Saudi Arabia</p>
+    <div class="pin-wrapper">
+      <input type="password" id="pinInput" placeholder="Enter PIN">
+      <span id="togglePin">👁</span>
     </div>
 
-    <!-- SUMMARY (ADDED – SHORT) -->
-    <p class="summary">
-      Hospitality professional with experience in food and beverage service, event management,
-      and food safety compliance. Certified under TESDA and international food safety programs,
-      with strong customer service and safety awareness.
-    </p>
+    <button onclick="checkPin()">Unlock</button>
 
-    <!-- CERTIFICATES -->
-    <div class="certificates">
-      <h2>Certificates & Trainings</h2>
-
-      <ul>
-        <li>
-          <span>Event Management Services NC III (TESDA)</span>
-          <div class="btn-group">
-            <button class="view-btn" onclick="openCert('tesda2.jpg')">View</button>
-            <a href="tesda2.jpg" download class="download-btn">Download</a>
-          </div>
-        </li>
-
-        <li>
-          <span>Food and Beverage Services NC II (TESDA)</span>
-          <div class="btn-group">
-            <button class="view-btn" onclick="openCert('tesda1.jpg')">View</button>
-            <a href="tesda1.jpg" download class="download-btn">Download</a>
-          </div>
-        </li>
-
-        <li>
-          <span>Highfield International Award Level 3 in Food Safety for Catering (RQF)</span>
-          <div class="btn-group">
-            <button class="view-btn" onclick="openCert('cert1.jpg')">View</button>
-            <a href="cert1.jpg" download class="download-btn">Download</a>
-          </div>
-        </li>
-
-        <li>
-          <span>Highfield International Award Level 3 in Emergency First Aid at Work</span>
-          <div class="btn-group">
-            <button class="view-btn" onclick="openCert('cert2.jpg')">View</button>
-            <a href="cert2.jpg" download class="download-btn">Download</a>
-          </div>
-        </li>
-
-        <li>
-          <span>HACCP (Hazard Analysis and Critical Control Point)</span>
-          <div class="btn-group">
-            <button class="view-btn" onclick="openCert('cert3.jpg')">View</button>
-            <a href="cert3.jpg" download class="download-btn">Download</a>
-          </div>
-        </li>
-
-        <li>
-          <span>COSHH (Control of Substances Hazardous to Health)</span>
-          <div class="btn-group">
-            <button class="view-btn" onclick="openCert('cert4.jpg')">View</button>
-            <a href="cert4.jpg" download class="download-btn">Download</a>
-          </div>
-        </li>
-
-        <li>
-          <span>KAUST Health and Safety at Work</span>
-          <div class="btn-group">
-            <button class="view-btn" onclick="openCert('cert5.jpg')">View</button>
-            <a href="cert5.jpg" download class="download-btn">Download</a>
-          </div>
-        </li>
-
-        <li>
-          <span>International Training Program Level 1 in Food Safety</span>
-          <div class="btn-group">
-            <button class="view-btn" onclick="openCert('cert6.jpg')">View</button>
-            <a href="cert6.jpg" download class="download-btn">Download</a>
-          </div>
-        </li>
-
-        <li>
-          <span>International Training Program Level 2 in Food Safety</span>
-          <div class="btn-group">
-            <button class="view-btn" onclick="openCert('cert7.jpg')">View</button>
-            <a href="cert7.jpg" download class="download-btn">Download</a>
-          </div>
-        </li>
-
-        <li>
-          <span>Waste Management System Training</span>
-          <div class="btn-group">
-            <button class="view-btn" onclick="openCert('cert8.jpg')">View</button>
-            <a href="cert8.jpg" download class="download-btn">Download</a>
-          </div>
-        </li>
-
-        <li>
-          <span>Customer Service Training</span>
-          <div class="btn-group">
-            <button class="view-btn" onclick="openCert('cert9.jpg')">View</button>
-            <a href="cert9.jpg" download class="download-btn">Download</a>
-          </div>
-        </li>
-
-        <li>
-          <span>Fire and Safety Prevention Program</span>
-          <div class="btn-group">
-            <button class="view-btn" onclick="openCert('cert10.jpg')">View</button>
-            <a href="cert10.jpg" download class="download-btn">Download</a>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-    <!-- DOWNLOAD BUTTONS -->
-    <a href="resume.pdf" download class="resume-btn">Download Resume (PDF)</a>
-    <a href="certificates.zip" download class="zip-btn">Download Certificates (ZIP)</a>
+    <div class="loader" id="loader"></div>
+    <p id="pinError"></p>
   </div>
+</div>
 
-  <!-- MODAL -->
-  <div id="certModal" class="modal">
-    <span class="close" onclick="closeCert()">&times;</span>
-    <img id="certImage" class="modal-content" loading="lazy" alt="Certificate preview">
-  </div>
+<!-- SITE CONTENT -->
+<div id="siteContent" style="display:none;">
 
-  <script>
-    function openCert(src) {
-      const modal = document.getElementById("certModal");
-      modal.style.display = "flex";
-      document.getElementById("certImage").src = src;
+<div class="card">
+
+<img src="profile.png" alt="Profile photo of Mary Ann Balolong Urbano">
+
+<h1>MARY ANN BALOLONG URBANO</h1>
+<h3 class="role">Executive / Head Waitress</h3>
+
+<div class="contact">
+<p>📧 <a href="mailto:urbanomaryann1990@gmail.com">urbanomaryann1990@gmail.com</a></p>
+<p>📱 <a href="tel:+966546347596">+966 54-634-7596</a></p>
+<p>📍 Thuwal, Jeddah, Saudi Arabia</p>
+</div>
+
+<p class="summary">
+Hospitality professional with experience in food and beverage service, event management,
+and food safety compliance. Certified under TESDA and international food safety programs,
+with strong customer service and safety awareness.
+</p>
+
+<div class="certificates">
+<h2>Certificates & Trainings</h2>
+
+<ul>
+
+<li><span>Event Management Services NC III (TESDA)</span>
+<div class="btn-group">
+<button class="view-btn" onclick="openCert('tesda2.jpg')">View</button>
+<a href="tesda2.jpg" download class="download-btn">Download</a>
+</div></li>
+
+<li><span>Food and Beverage Services NC II (TESDA)</span>
+<div class="btn-group">
+<button class="view-btn" onclick="openCert('tesda1.jpg')">View</button>
+<a href="tesda1.jpg" download class="download-btn">Download</a>
+</div></li>
+
+<li><span>Highfield International Award Level 3 in Food Safety for Catering (RQF)</span>
+<div class="btn-group">
+<button class="view-btn" onclick="openCert('cert1.jpg')">View</button>
+<a href="cert1.jpg" download class="download-btn">Download</a>
+</div></li>
+
+<li><span>Highfield International Award Level 3 in Emergency First Aid at Work</span>
+<div class="btn-group">
+<button class="view-btn" onclick="openCert('cert2.jpg')">View</button>
+<a href="cert2.jpg" download class="download-btn">Download</a>
+</div></li>
+
+<li><span>HACCP (Hazard Analysis and Critical Control Point)</span>
+<div class="btn-group">
+<button class="view-btn" onclick="openCert('cert3.jpg')">View</button>
+<a href="cert3.jpg" download class="download-btn">Download</a>
+</div></li>
+
+<li><span>COSHH (Control of Substances Hazardous to Health)</span>
+<div class="btn-group">
+<button class="view-btn" onclick="openCert('cert4.jpg')">View</button>
+<a href="cert4.jpg" download class="download-btn">Download</a>
+</div></li>
+
+<li><span>KAUST Health and Safety at Work</span>
+<div class="btn-group">
+<button class="view-btn" onclick="openCert('cert5.jpg')">View</button>
+<a href="cert5.jpg" download class="download-btn">Download</a>
+</div></li>
+
+<li><span>International Training Program Level 1 in Food Safety</span>
+<div class="btn-group">
+<button class="view-btn" onclick="openCert('cert6.jpg')">View</button>
+<a href="cert6.jpg" download class="download-btn">Download</a>
+</div></li>
+
+<li><span>International Training Program Level 2 in Food Safety</span>
+<div class="btn-group">
+<button class="view-btn" onclick="openCert('cert7.jpg')">View</button>
+<a href="cert7.jpg" download class="download-btn">Download</a>
+</div></li>
+
+<li><span>Waste Management System Training</span>
+<div class="btn-group">
+<button class="view-btn" onclick="openCert('cert8.jpg')">View</button>
+<a href="cert8.jpg" download class="download-btn">Download</a>
+</div></li>
+
+<li><span>Customer Service Training</span>
+<div class="btn-group">
+<button class="view-btn" onclick="openCert('cert9.jpg')">View</button>
+<a href="cert9.jpg" download class="download-btn">Download</a>
+</div></li>
+
+<li><span>Fire and Safety Prevention Program</span>
+<div class="btn-group">
+<button class="view-btn" onclick="openCert('cert10.jpg')">View</button>
+<a href="cert10.jpg" download class="download-btn">Download</a>
+</div></li>
+
+</ul>
+</div>
+
+<a href="resume.pdf" download class="resume-btn">Download Resume (PDF)</a>
+<a href="certificates.zip" download class="zip-btn">Download Certificates (ZIP)</a>
+
+</div>
+</div>
+
+<div id="certModal" class="modal">
+<span class="close" onclick="closeCert()">&times;</span>
+<img id="certImage" class="modal-content" loading="lazy">
+</div>
+
+<script>
+
+const correctPin = "1234";
+let attempts = 0;
+
+document.getElementById("togglePin").onclick = function() {
+  const input = document.getElementById("pinInput");
+  input.type = input.type === "password" ? "text" : "password";
+};
+
+function checkPin() {
+
+  const input = document.getElementById("pinInput");
+  const loader = document.getElementById("loader");
+  const error = document.getElementById("pinError");
+
+  loader.style.display = "block";
+  error.innerText = "";
+
+  setTimeout(() => {
+
+    if (input.value === correctPin) {
+      document.getElementById("lockScreen").style.display = "none";
+      document.getElementById("siteContent").style.display = "block";
+    } else {
+      attempts++;
+      loader.style.display = "none";
+
+      if (attempts >= 3) {
+        error.innerText = "Too many attempts. Locked for 30 seconds.";
+        input.disabled = true;
+
+        setTimeout(() => {
+          attempts = 0;
+          input.disabled = false;
+          error.innerText = "";
+        }, 30000);
+
+      } else {
+        error.innerText = "Wrong PIN (" + attempts + "/3)";
+      }
     }
 
-    function closeCert() {
-      document.getElementById("certModal").style.display = "none";
-    }
+  }, 800);
+}
 
-    document.addEventListener("keydown", function(e) {
-      if (e.key === "Escape") closeCert();
-    });
+function openCert(src) {
+  document.getElementById("certModal").style.display = "flex";
+  document.getElementById("certImage").src = src;
+}
 
-    document.getElementById("certModal").addEventListener("click", function(e) {
-      if (e.target === this) closeCert();
-    });
-  </script>
+function closeCert() {
+  document.getElementById("certModal").style.display = "none";
+}
+
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") closeCert();
+});
+
+document.getElementById("certModal").addEventListener("click", function(e) {
+  if (e.target === this) closeCert();
+});
+
+</script>
 
 </body>
 </html>
