@@ -233,4 +233,44 @@ body {
     padding: 22px 18px;
   }
 }
+#lockScreen {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg,#0d47a1,#1976d2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.lock-box {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  width: 260px;
+}
+
+.lock-box input {
+  width: 100%;
+  padding: 10px;
+  margin: 15px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.lock-box button {
+  padding: 10px 20px;
+  background: #007bff;
+  border: none;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+#pinError {
+  color: red;
+  font-size: 13px;
+  margin-top: 8px;
+}
 
