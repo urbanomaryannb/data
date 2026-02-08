@@ -15,11 +15,14 @@
 
 <!-- LOCK SCREEN -->
 <div id="lockScreen">
+  <div class="settings-btn" onclick="openSettings()">⚙️</div>
+
   <div class="lock-box">
-    <h2>Enter PIN</h2>
+    <h2>Secure Access</h2>
+    <p class="lock-sub">Enter your PIN to continue</p>
 
     <div class="pin-wrapper">
-      <input type="password" id="pinInput" placeholder="Enter PIN">
+      <input type="password" id="pinInput" placeholder="••••">
       <span id="togglePin">👁</span>
     </div>
 
@@ -30,6 +33,14 @@
   </div>
 </div>
 
+<!-- SETTINGS PANEL (HIDDEN) -->
+<div id="settingsPanel">
+  <div class="settings-box">
+    <h3>Settings</h3>
+    <p class="small-note">For owner use only</p>
+    <button onclick="closeSettings()">Close</button>
+  </div>
+</div>
 <!-- SITE CONTENT -->
 <div id="siteContent" style="display:none;">
 
@@ -210,3 +221,4 @@ document.getElementById("certModal").addEventListener("click", function(e) {
 
 </body>
 </html>
+
