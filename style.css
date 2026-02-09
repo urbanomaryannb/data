@@ -383,3 +383,17 @@ body {
   color: #fff;
   cursor: pointer;
 }
+.id-btn {
+  display:block;
+  margin-top:10px;
+  padding:11px;
+  background:#6f42c1;
+  color:white;
+  text-decoration:none;
+  border-radius:26px;
+  text-align:center;
+}
+
+.id-btn:hover {
+  background:#59339d;
+}
