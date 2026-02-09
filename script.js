@@ -1,5 +1,6 @@
 <script>
-
+ 
+alert("NEW PIN ACTIVE");
 const correctPin = "mburbano.36"; // CHANGE YOUR PIN HERE
 let attempts = 0;
 
