@@ -1,99 +1,69 @@
-<script>
- 
-alert("NEW PIN ACTIVE");
-const correctPin = "mburbano.36"; // CHANGE YOUR PIN HERE
+const correctPin = "mburbano.36";
 let attempts = 0;
 
-/* AUTO UNLOCK IF SESSION EXISTS */
-if(sessionStorage.getItem("unlocked")==="yes"){
- document.getElementById("lockScreen").style.display="none";
- document.getElementById("siteContent").style.display="block";
-}
+const pinInput = document.getElementById("pinInput");
+const unlockBtn = document.getElementById("unlockBtn");
+const togglePin = document.getElementById("togglePin");
+const loader = document.getElementById("loader");
+const error = document.getElementById("pinError");
 
-/* AUTO FOCUS */
-document.getElementById("pinInput").focus();
+pinInput.focus();
 
-/* ENTER KEY SUBMIT */
-document.getElementById("pinInput").addEventListener("keyup", function(e) {
-  if (e.key === "Enter") checkPin();
+pinInput.addEventListener("keyup",e=>{
+ if(e.key==="Enter") checkPin();
 });
 
-/* EYE TOGGLE */
-document.getElementById("togglePin").onclick = function() {
-  const input = document.getElementById("pinInput");
-  input.type = input.type === "password" ? "text" : "password";
+unlockBtn.addEventListener("click",checkPin);
+
+togglePin.onclick=()=>{
+ pinInput.type = pinInput.type==="password"?"text":"password";
 };
 
-function checkPin() {
+function checkPin(){
 
-  const input = document.getElementById("pinInput");
-  const loader = document.getElementById("loader");
-  const error = document.getElementById("pinError");
+ loader.style.display="block";
+ error.innerText="";
 
-  loader.style.display = "block";
-  error.innerText = "";
+ setTimeout(()=>{
 
-  setTimeout(() => {
+  if(pinInput.value===correctPin){
+   document.getElementById("lockScreen").style.display="none";
+   document.getElementById("siteContent").style.display="block";
+  } else {
 
-    if (input.value === correctPin) {
+   attempts++;
+   loader.style.display="none";
 
-      sessionStorage.setItem("unlocked","yes");
-      document.getElementById("lockScreen").style.display = "none";
-      document.getElementById("siteContent").style.display = "block";
+   if(attempts>=3){
+    error.innerText="Locked for 30 seconds.";
+    pinInput.disabled=true;
 
-    } else {
+    setTimeout(()=>{
+     attempts=0;
+     pinInput.disabled=false;
+     error.innerText="";
+    },30000);
+   } else {
+    error.innerText="Wrong PIN";
+   }
+  }
 
-      attempts++;
-      loader.style.display = "none";
-
-      input.classList.add("shake");
-      setTimeout(()=>input.classList.remove("shake"),300);
-
-      if (attempts >= 3) {
-
-        error.innerText = "Too many attempts. Locked for 30 seconds.";
-        input.disabled = true;
-
-        setTimeout(() => {
-          attempts = 0;
-          input.disabled = false;
-          error.innerText = "";
-        }, 30000);
-
-      } else {
-
-        error.innerText = "Wrong PIN";
-      }
-    }
-
-  }, 800);
+ },800);
 }
 
-/* CERTIFICATE MODAL */
+/* CERT MODAL */
 
-function openCert(src) {
-  document.getElementById("certModal").style.display = "flex";
-  document.getElementById("certImage").src = src;
-}
-
-function closeCert() {
-  document.getElementById("certModal").style.display = "none";
-}
-
-document.addEventListener("keydown", function(e) {
-  if (e.key === "Escape") closeCert();
+document.querySelectorAll(".view-btn").forEach(btn=>{
+ btn.onclick=()=>{
+  document.getElementById("certModal").style.display="flex";
+  document.getElementById("certImage").src = btn.dataset.img;
+ };
 });
 
-document.getElementById("certModal").addEventListener("click", function(e) {
-  if (e.target === this) closeCert();
-});
+document.querySelector(".close").onclick=()=>{
+ document.getElementById("certModal").style.display="none";
+};
 
-function openSettings() {
-  document.getElementById("settingsPanel").style.display = "flex";
-}
-
-function closeSettings() {
-  document.getElementById("settingsPanel").style.display = "none";
-}
-
-</script>
+document.getElementById("certModal").onclick=e=>{
+ if(e.target.id==="certModal") e.currentTarget.style.display="none";
+};
