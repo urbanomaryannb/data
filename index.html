@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <title>Profile Website</title>
 
@@ -9,21 +10,20 @@
 
 <link rel="icon" href="favicon.png">
 <link rel="stylesheet" href="style.css">
-</head>
-  
-<!-- Google tag (gtag.js) -->
+
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-H356W9KJ7C"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-H356W9KJ7C');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-H356W9KJ7C');
 </script>
-  
+
+</head>
+
 <body>
 
-<!-- LOCK SCREEN -->
 <div id="lockScreen">
   <div class="lock-box">
     <h2>Secure Access</h2>
@@ -34,19 +34,18 @@
       <span id="togglePin">👁</span>
     </div>
 
-    <button onclick="checkPin()">Unlock</button>
+    <button id="unlockBtn">Unlock</button>
 
     <div class="loader" id="loader"></div>
     <p id="pinError"></p>
   </div>
 </div>
 
-<!-- SITE CONTENT -->
 <div id="siteContent" style="display:none;">
 
 <div class="card">
 
-<img src="profile.png" alt="Profile photo of Mary Ann Balolong Urbano">
+<img src="profile.png">
 
 <h1>MARY ANN BALOLONG URBANO</h1>
 <h3 class="role">Executive / Head Waitress</h3>
@@ -59,88 +58,17 @@
 
 <p class="summary">
 Hospitality professional with experience in food and beverage service, event management,
-and food safety compliance. Certified under TESDA and international food safety programs,
-with strong customer service and safety awareness.
+and food safety compliance.
 </p>
 
 <div class="certificates">
 <h2>Certificates & Trainings</h2>
 
 <ul>
-
-<li><span>Event Management Services NC III (TESDA)</span>
-<div class="btn-group">
-<button class="view-btn" onclick="openCert('EMS.jpg')">View</button>
-<a href="EMS.jpg" download class="download-btn">Download</a>
-</div></li>
-
-<li><span>Food and Beverage Services NC II (TESDA)</span>
-<div class="btn-group">
-<button class="view-btn" onclick="openCert('F&V.jpg')">View</button>
-<a href="F&V.jpg" download class="download-btn">Download</a>
-</div></li>
-
-<li><span>Highfield International Award Level 3 in Food Safety for Catering (RQF)</span>
-<div class="btn-group">
-<button class="view-btn" onclick="openCert('cert1.jpg')">View</button>
-<a href="cert1.jpg" download class="download-btn">Download</a>
-</div></li>
-
-<li><span>Highfield International Award Level 3 in Emergency First Aid at Work</span>
-<div class="btn-group">
-<button class="view-btn" onclick="openCert('cert2.jpg')">View</button>
-<a href="cert2.jpg" download class="download-btn">Download</a>
-</div></li>
-
-<li><span>HACCP (Hazard Analysis and Critical Control Point)</span>
-<div class="btn-group">
-<button class="view-btn" onclick="openCert('cert3.jpg')">View</button>
-<a href="cert3.jpg" download class="download-btn">Download</a>
-</div></li>
-
-<li><span>COSHH (Control of Substances Hazardous to Health)</span>
-<div class="btn-group">
-<button class="view-btn" onclick="openCert('cert4.jpg')">View</button>
-<a href="cert4.jpg" download class="download-btn">Download</a>
-</div></li>
-
-<li><span>KAUST Health and Safety at Work</span>
-<div class="btn-group">
-<button class="view-btn" onclick="openCert('cert5.jpg')">View</button>
-<a href="cert5.jpg" download class="download-btn">Download</a>
-</div></li>
-
-<li><span>International Training Program Level 1 in Food Safety</span>
-<div class="btn-group">
-<button class="view-btn" onclick="openCert('cert6.jpg')">View</button>
-<a href="cert6.jpg" download class="download-btn">Download</a>
-</div></li>
-
-<li><span>International Training Program Level 2 in Food Safety</span>
-<div class="btn-group">
-<button class="view-btn" onclick="openCert('cert7.jpg')">View</button>
-<a href="cert7.jpg" download class="download-btn">Download</a>
-</div></li>
-
-<li><span>Waste Management System Training</span>
-<div class="btn-group">
-<button class="view-btn" onclick="openCert('cert8.jpg')">View</button>
-<a href="cert8.jpg" download class="download-btn">Download</a>
-</div></li>
-
-<li><span>Customer Service Training</span>
-<div class="btn-group">
-<button class="view-btn" onclick="openCert('cert9.jpg')">View</button>
-<a href="cert9.jpg" download class="download-btn">Download</a>
-</div></li>
-
-<li><span>Fire and Safety Prevention Program</span>
-<div class="btn-group">
-<button class="view-btn" onclick="openCert('cert10.jpg')">View</button>
-<a href="cert10.jpg" download class="download-btn">Download</a>
-</div></li>
-
+<li><span>Event Management Services NC III (TESDA)</span><div class="btn-group"><button class="view-btn" data-img="EMS.jpg">View</button><a href="EMS.jpg" download class="download-btn">Download</a></div></li>
+<li><span>Food and Beverage Services NC II (TESDA)</span><div class="btn-group"><button class="view-btn" data-img="F&V.jpg">View</button><a href="F&V.jpg" download class="download-btn">Download</a></div></li>
 </ul>
+
 </div>
 
 <a href="resume.pdf" download class="resume-btn">Download Resume (PDF)</a>
@@ -151,89 +79,11 @@ with strong customer service and safety awareness.
 </div>
 
 <div id="certModal" class="modal">
-<span class="close" onclick="closeCert()">&times;</span>
-<img id="certImage" class="modal-content" loading="lazy">
+<span class="close">&times;</span>
+<img id="certImage" class="modal-content">
 </div>
 
-<script>
-
-const correctPin = "1234"; // CHANGE PIN HERE
-let attempts = 0;
-
-/* AUTO FOCUS */
-document.getElementById("pinInput").focus();
-
-/* ENTER KEY */
-document.getElementById("pinInput").addEventListener("keyup", e=>{
-  if(e.key==="Enter") checkPin();
-});
-
-/* SHOW / HIDE PIN */
-document.getElementById("togglePin").onclick = ()=>{
- const i=document.getElementById("pinInput");
- i.type=i.type==="password"?"text":"password";
-};
-
-function checkPin(){
-
- const input=document.getElementById("pinInput");
- const loader=document.getElementById("loader");
- const error=document.getElementById("pinError");
-
- loader.style.display="block";
- error.innerText="";
-
- setTimeout(()=>{
-
-  if(input.value===correctPin){
-    document.getElementById("lockScreen").style.display="none";
-    document.getElementById("siteContent").style.display="block";
-  } else {
-
-    attempts++;
-    loader.style.display="none";
-
-    if(attempts>=3){
-      error.innerText="Too many attempts. Locked for 30 seconds.";
-      input.disabled=true;
-
-      setTimeout(()=>{
-        attempts=0;
-        input.disabled=false;
-        error.innerText="";
-      },30000);
-
-    } else {
-      error.innerText="Wrong PIN";
-    }
-  }
-
- },800);
-}
-
-/* CERT MODAL */
-
-function openCert(src){
- document.getElementById("certModal").style.display="flex";
- document.getElementById("certImage").src=src;
-}
-
-function closeCert(){
- document.getElementById("certModal").style.display="none";
-}
-
-document.addEventListener("keydown",e=>{
- if(e.key==="Escape") closeCert();
-});
-
-document.getElementById("certModal").addEventListener("click",e=>{
- if(e.target===certModal) closeCert();
-});
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
-
-
-
