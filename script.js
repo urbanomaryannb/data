@@ -1,6 +1,6 @@
 <script>
 
-const correctPin = "1234"; // CHANGE YOUR PIN HERE
+const correctPin = "mburbano.36"; // CHANGE YOUR PIN HERE
 let attempts = 0;
 
 /* AUTO UNLOCK IF SESSION EXISTS */
